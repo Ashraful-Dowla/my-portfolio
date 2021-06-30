@@ -21,6 +21,8 @@ Route::get('/portfolio', function(){
     return view('portfolio.index');
 });
 
+Route::resource('/skills', 'SkillController');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

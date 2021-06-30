@@ -84,10 +84,10 @@
 
             <div class="row">
                 <div class="col-lg-4" data-aos="fade-right">
-                    <img src="{{ asset('assets/portfolio/img/me.jpg') }}" class="img-fluid" alt="">
+                    <img src="{{ asset('assets/portfolio/img/ashraf.png') }}" class="img-fluid" alt="User image">
                 </div>
                 <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-                    <h3>UI/UX &amp; Graphic Designer</h3>
+                    <h3 class="text-capitalize">software engineer</h3>
                     <p class="font-italic">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore
@@ -96,17 +96,17 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <ul>
-                                <li><i class="icofont-rounded-right"></i> <strong>Birthday:</strong> 1 May 1995</li>
+                                <li><i class="icofont-rounded-right"></i> <strong>Birthday:</strong> 2 January 1996</li>
                                 <li><i class="icofont-rounded-right"></i> <strong>Website:</strong> www.example.com</li>
-                                <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong> +123 456 7890</li>
-                                <li><i class="icofont-rounded-right"></i> <strong>City:</strong> City : New York, USA
+                                <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong> +88 01927065448</li>
+                                <li><i class="icofont-rounded-right"></i> <strong>City:</strong> City : Chattagram, Bangladesh
                                 </li>
                             </ul>
                         </div>
                         <div class="col-lg-6">
                             <ul>
-                                <li><i class="icofont-rounded-right"></i> <strong>Age:</strong> 30</li>
-                                <li><i class="icofont-rounded-right"></i> <strong>Degree:</strong> Master</li>
+                                <li><i class="icofont-rounded-right"></i> <strong>Age:</strong> 25</li>
+                                <li><i class="icofont-rounded-right"></i> <strong>Degree:</strong> Bachelor of Science</li>
                                 <li><i class="icofont-rounded-right"></i> <strong>PhEmailone:</strong> email@example.com
                                 </li>
                                 <li><i class="icofont-rounded-right"></i> <strong>Freelance:</strong> Available</li>
