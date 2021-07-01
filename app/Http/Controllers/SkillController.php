@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Skill;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Toastr;
 use Validator;
 
@@ -16,7 +17,8 @@ class SkillController extends Controller
      */
     public function index()
     {
-        return view('admin.skills.index');
+        $skills = Skill::all();
+        return view('admin.skills.index')->with(['skills' => $skills]);
     }
 
     /**
@@ -38,16 +40,19 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
+        $request['slug_name'] = Str::slug($request->name, '-');
+
         $validator = Validator::make($request->all(), [
-            'name' => 'required|min:3|max:255',
+            'name' => 'required|min:1|max:255',
+            'slug_name' => 'unique:skills',
             'progress_value' => 'required|numeric|min:1|max:100',
-        ]);
+        ], ['slug_name.unique' => 'The name has already taken']);
 
         if ($validator->fails()) {
-            Toastr::error('Failed', 'Message', ["positionClass" => "toast-top-right"]);
-        }else {
+            $this->errors($validator->errors());
+        } else {
             auth()->user()->skills()->create($request->all());
-            Toastr::success('Successfully inserted', 'Message', ["positionClass" => "toast-top-right"]);
+            Toastr::success('Successfully Inserted', 'Message', ["positionClass" => "toast-top-right"]);
         }
 
         return redirect()->back();
@@ -72,7 +77,7 @@ class SkillController extends Controller
      */
     public function edit(Skill $skill)
     {
-        //
+        return view('admin.skills.edit')->with(['skill' => $skill]);
     }
 
     /**
@@ -84,7 +89,20 @@ class SkillController extends Controller
      */
     public function update(Request $request, Skill $skill)
     {
-        //
+
+        $validator = Validator::make($request->all(), [
+            'progress_value' => 'required|numeric|min:1|max:100',
+        ]);
+
+        if ($validator->fails()) {
+            $this->errors($validator->errors());
+            return redirect()->back();
+        } else {
+            $skill->update($request->all());
+            Toastr::success('Successfully Updated', 'Message', ["positionClass" => "toast-top-right"]);
+        }
+
+        return redirect(route('skills.index'));
     }
 
     /**
@@ -95,6 +113,15 @@ class SkillController extends Controller
      */
     public function destroy(Skill $skill)
     {
-        //
+        $skill->delete();
+        Toastr::success('Successfully Deleted', 'Message', ["positionClass" => "toast-top-right"]);
+        return redirect()->back();
+    }
+
+    private function errors($errors)
+    {
+        foreach ($errors->all() as $message) {
+            Toastr::error($message, 'Message', ["positionClass" => "toast-top-right"]);
+        }
     }
 }

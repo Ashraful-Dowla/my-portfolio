@@ -11,6 +11,11 @@ class Skill extends Model
 
     protected $fillable = [
         'name',
+        'slug_name',
         'progress_value',
+    ];
+
+    protected $hidden = [
+        'slug_name'
     ];
 }

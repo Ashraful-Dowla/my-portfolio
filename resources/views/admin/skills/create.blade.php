@@ -38,18 +38,26 @@
             $('#skillForm').validate({
                 rules: {
                     name: {
-                        required: true
+                        required: true,
+                        minlength: 1,
+                        maxlength: 255
                     },
                     progress_value: {
-                        required: true
+                        required: true,
+                        number: true,
+                        range: [1, 100]
                     }
                 },
                 messages: {
-                    email: {
-                        required: "Please enter a skill name"
+                    name: {
+                        required: "Please enter a skill name",
+                        minlength: "Name field required minimum 1 character",
+                        minlength: "Name field required maximum 255 characters",
                     },
                     progress_value: {
-                        required: "Please enter a progress value"
+                        required: "Please enter a progress value",
+                        number: "Please enter number only",
+                        range: "Value should be in between 1 to 100",
                     }
                 },
                 errorElement: 'span',

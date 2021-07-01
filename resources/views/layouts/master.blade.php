@@ -212,7 +212,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('skills.create') }}" class="nav-link">
+                            <a href="{{ route('skills.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Skills
