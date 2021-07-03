@@ -17,11 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/portfolio', function(){
-    return view('portfolio.index');
-});
+Route::get('/portfolio', 'PortfolioController@index');
 
 Route::resource('/skills', 'SkillController');
+Route::resource('/testimonials', 'TestimonialController');
 
 Auth::routes();
 
