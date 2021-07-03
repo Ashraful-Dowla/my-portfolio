@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Skill;
 use App\Models\Testimonial;
+use App\Models\Cv;
 
 class User extends Authenticatable
 {

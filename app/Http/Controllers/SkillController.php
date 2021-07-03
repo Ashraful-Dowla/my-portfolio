@@ -55,7 +55,7 @@ class SkillController extends Controller
             Toastr::success('Successfully Inserted', 'Message', ["positionClass" => "toast-top-right"]);
         }
 
-        return redirect()->back();
+        return redirect(route('skills.index'));
     }
 
     /**

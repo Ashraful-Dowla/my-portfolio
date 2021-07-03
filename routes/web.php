@@ -22,6 +22,9 @@ Route::get('/portfolio', 'PortfolioController@index');
 Route::resource('/skills', 'SkillController');
 Route::resource('/testimonials', 'TestimonialController');
 
+Route::get('/cv/create', 'CvController@create')->name('cv.create');
+Route::post('/cv/store', 'CvController@store')->name('cv.store');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
