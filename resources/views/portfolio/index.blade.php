@@ -52,7 +52,7 @@
                 <ul>
                     <li class="active"><a href="#header">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="{{ url('/download') }}">Resume</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>

@@ -11,19 +11,20 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome');
 
 Route::get('/portfolio', 'PortfolioController@index');
+Route::get('/download', 'PortfolioController@download');
 
 Route::resource('/skills', 'SkillController');
 Route::resource('/testimonials', 'TestimonialController');
 
-Route::get('/cv/create', 'CvController@create')->name('cv.create');
-Route::post('/cv/store', 'CvController@store')->name('cv.store');
+Route::prefix('cv')->group(function () {
+    Route::get('/create', 'CvController@create')->name('cv.create');
+    Route::post('/store', 'CvController@store')->name('cv.store');
+});
 
 Auth::routes();
 

@@ -40,12 +40,14 @@
             $('#cvForm').validate({
                 rules: {
                     cv: {
+                        required: true,
                         extension: "pdf",
                         maxsize: 1 * 1024 * 1024 //MB
                     }
                 },
                 messages: {
                     cv: {
+                        required: "Please upload CV",
                         extension: "CV type must be pdf",
                         maxsize: "CV size must be less than 1mb"
                     }

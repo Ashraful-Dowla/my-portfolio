@@ -16,4 +16,15 @@ class PortfolioController extends Controller
             'testimonials' => $testimonials,
         ]);
     }
+
+    public function download()
+    {
+        $filepath = public_path('/storage/cv/my_cv.pdf');
+        $filename = 'Ashraful_Dowla_CV.pdf';
+        $headers = array(
+            'Content-Type: application/pdf',
+        );
+
+        return response()->download($filepath, $filename, $headers);
+    }
 }
