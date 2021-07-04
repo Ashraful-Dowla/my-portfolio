@@ -225,7 +225,6 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Testimonials
-                                    {{-- <span class="right badge badge-danger">New</span> --}}
                                 </p>
                             </a>
                         </li>
@@ -234,7 +233,6 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     CV Upload
-                                    {{-- <span class="right badge badge-danger">New</span> --}}
                                 </p>
                             </a>
                         </li>
