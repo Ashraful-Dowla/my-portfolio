@@ -26,6 +26,8 @@ Route::prefix('cv')->group(function () {
     Route::post('/store', 'CvController@store')->name('cv.store');
 });
 
+Route::post('/send-mail', 'MailController@sendMail');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
