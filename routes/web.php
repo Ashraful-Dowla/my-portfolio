@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\CvController;
+use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,19 +20,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 
-Route::get('/portfolio', 'PortfolioController@index');
-Route::get('/download', 'PortfolioController@download');
+Route::get('/portfolio', [PortfolioController::class, 'index']);
+Route::get('/download', [PortfolioController::class, 'download']);
 
 Route::resource('/skills', 'SkillController');
 Route::resource('/testimonials', 'TestimonialController');
 
 Route::prefix('cv')->group(function () {
-    Route::get('/create', 'CvController@create')->name('cv.create');
-    Route::post('/store', 'CvController@store')->name('cv.store');
+    Route::get('/create', [CvController::class, 'create'])->name('cv.create');
+    Route::post('/store', [CvController::class, 'store'])->name('cv.store');
 });
 
-Route::post('/send-mail', 'MailController@sendMail');
+Route::post('/send-mail', [MailController::class, 'sendMail']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
